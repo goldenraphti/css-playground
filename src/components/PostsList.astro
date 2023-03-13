@@ -1,0 +1,35 @@
+---
+const posts = ["has", "subgrid", "container", "css layers"];
+---
+
+<ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/${post}`}>{post}</a>
+      </li>
+    ))
+  }
+</ul>
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    list-style-type: none;
+  }
+  a {
+    border-radius: 4rem;
+    height: 200px;
+    width: 300px;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+  }
+  li:nth-of-type(even) a {
+    background: var(--accent-gradient-violet);
+  }
+  li:nth-of-type(odd) a {
+    background: var(--accent-gradient-red);
+  }
+</style>
