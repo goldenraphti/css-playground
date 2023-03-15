@@ -1,15 +1,27 @@
 ---
 const posts = ["has", "subgrid", "container", "css layers"];
+const linksIllustrations = [
+  "Saly-1.png",
+  "Saly-8.png",
+  "Saly-11.png",
+  "Saly-17.png",
+  "Saly-20.png",
+  "3d-plastic-people-tv.png",
+];
+import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
 ---
 
 <ul>
   {
-    posts.map((post) => (
+    experimentsPagesDetails.map((experiment, i) => (
       <li>
-        <a href={`/${post}`}>
-          {post}
+        <a
+          href={`/${experiment.path}`}
+          style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
+        >
+          {experiment.title}
           <img
-            src={`/images/${post?.thumbnail?.path ?? "Saly-1.png"}`}
+            src={`/images/${experiment?.illustration ?? linksIllustrations[i]}`}
             alt=''
           />
         </a>
@@ -42,7 +54,8 @@ const posts = ["has", "subgrid", "container", "css layers"];
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--purple-1-oklch-full);
+    background: var(--bg-color);
+    color: var(--txt-color);
   }
   li img {
     width: 150px;
@@ -50,25 +63,5 @@ const posts = ["has", "subgrid", "container", "css layers"];
     position: absolute;
     bottom: 10px;
     right: 10px;
-  }
-  li:nth-of-type(1) a {
-    background: var(--violet-1-oklch-25);
-    color: var(--violet-1-oklch-full);
-  }
-  li:nth-of-type(2) a {
-    background: var(--red-1-oklch-25);
-    color: var(--red-1-oklch-full);
-  }
-  li:nth-of-type(3) a {
-    background: var(--blue-1-oklch-25);
-    color: var(--blue-1-oklch-full);
-  }
-  li:nth-of-type(4) a {
-    background: var(--pink-1-oklch-25);
-    color: var(--pink-1-oklch-full);
-  }
-  li:nth-of-type(5) a {
-    background: var(--purple-1-oklch-25);
-    color: var(--purple-1-oklch-full);
   }
 </style>
