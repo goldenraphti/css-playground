@@ -19,7 +19,12 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
           href={`/${experiment.path}`}
           style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
         >
-          {experiment.title}
+          <div class='tags'>
+            {experiment.tags.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </div>
+          <div class='title'>{experiment.title}</div>
           <img
             src={`/images/${experiment?.illustration ?? linksIllustrations[i]}`}
             alt=''
@@ -49,7 +54,8 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     width: 300px;
     padding: 2rem;
     display: grid;
-    place-items: center;
+    grid-template-rows: 10% 60% 10% 10%;
+    grid-template-columns: 1fr;
     font-size: 2rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -57,11 +63,31 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     background: var(--bg-color);
     color: var(--txt-color);
   }
+  li .title {
+    grid-column: 1 / -1;
+    grid-row: 2 / 4;
+    justify-self: center;
+    align-self: center;
+  }
   li img {
     width: 150px;
     height: auto;
     position: absolute;
     bottom: 10px;
     right: 10px;
+  }
+  .tags {
+    display: flex;
+    gap: 10px;
+    align-self: start;
+    justify-self: start;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+  .tags span {
+    font-size: 0.4em;
+    background: var(--bg-color);
+    padding: 4px 6px;
+    border-radius: 5px;
   }
 </style>

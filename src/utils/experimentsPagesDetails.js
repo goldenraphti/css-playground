@@ -21,7 +21,7 @@ export const experimentsPagesDetails = [
     bgColor: "--blue-1-oklch-25",
     textColor: "--blue-1-oklch-full",
     illustration: "Saly-8.png",
-    tags: ["css", "experiment"],
+    tags: ["css", "experiment", "selector"],
   },
   {
     path: "subgrid.astro",
