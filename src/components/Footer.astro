@@ -1,11 +1,37 @@
 ---
 ---
 
-<footer>Raphaël Ferrand - Made with ♥ - Innodays 2023</footer>
+<footer>
+  Raphaël Ferrand - Made with <span class='animated-gradient'>♥</span> - Innodays
+  2023
+</footer>
 <style>
   footer {
     color: var(--blue-1-oklch-full);
     text-align: center;
     padding: 30px;
+  }
+  .animated-gradient {
+    animation: AnimatedColor infinite 6s ease-in-out;
+  }
+  @keyframes AnimatedColor {
+    0% {
+      color: var(--blue-1-oklch-full);
+    }
+    20% {
+      color: var(--violet-1-oklch-full);
+    }
+    40% {
+      color: var(--pink-1-oklch-full);
+    }
+    60% {
+      color: var(--red-1-oklch-full);
+    }
+    80% {
+      color: var(--purple-1-oklch-full);
+    }
+    100% {
+      color: var(--blue-1-oklch-full);
+    }
   }
 </style>
