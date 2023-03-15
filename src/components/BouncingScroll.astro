@@ -1,0 +1,78 @@
+---
+const { object, duration } = Astro.props;
+---
+
+<div class='scroll-down' style={`--duration: ${duration}s`}>
+  {
+    object === "spring" && (
+      <img
+        src='/images/doodle-5-1-1.png'
+        class='bounce'
+        alt='3d render scroll down twirly arrow'
+      />
+    )
+  }
+  {object === "circle" && <div class='bounce circle' />}
+</div>
+
+<style>
+  .scroll-down {
+    background-color: #fff;
+    border-radius: 3rem 3rem 0 0;
+    position: absolute;
+    bottom: calc(0px + 70px);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    --animation-duration: 1.6s;
+  }
+  .scroll-down img {
+    width: 80px;
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+    transform-origin: bottom;
+    position: absolute;
+    margin-bottom: 15px;
+  }
+  div.bounce.circle {
+    background-color: var(--blue-1);
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    animation-duration: var(--duration);
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+    transform-origin: bottom;
+    position: absolute;
+  }
+  .bounce {
+    animation-name: bounceScroll;
+    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+  @keyframes bounceScroll {
+    0% {
+      transform: scale(1, 1) translateY(0);
+    }
+    10% {
+      transform: scale(1.1, 0.9) translateY(0);
+    }
+    30% {
+      transform: scale(0.9, 1.1) translateY(-60px);
+    }
+    50% {
+      transform: scale(1.05, 0.95) translateY(0);
+    }
+    57% {
+      transform: scale(1, 1) translateY(-7px);
+    }
+    64% {
+      transform: scale(1, 1) translateY(0);
+    }
+    100% {
+      transform: scale(1, 1) translateY(0);
+    }
+  }
+</style>

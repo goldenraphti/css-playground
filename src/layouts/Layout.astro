@@ -24,17 +24,47 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --accent: 124, 58, 237;
+    --red-1: var(--red-1-oklch-full);
+    --red-1-rgba: rgba(252, 37, 103, 1);
+    --red-1-rgb: 252 37 103;
+    --red-1-oklch: 64.37% 0.287 11.38;
+    --red-1-oklch-full: oklch(64.37% 0.287 11.38);
+    --pink-1: var(--pink-1-oklch-full);
+    --pink-1-rgba: rgba(250, 38, 151, 1);
+    --pink-1-rgb: 250 38 151;
+    --pink-1-oklch: 65.43% 0.3 355.38;
+    --pink-1-oklch-full: oklch(65.43% 0.3 355.38);
+    --purple-1: var(--purple-1-oklch-full);
+    --purple-1-rgba: rgba(186, 8, 181, 1);
+    --purple-1-rgb: 186 8 181;
+    --purple-1-oklch: 55.22% 0.273 329.8;
+    --purple-1-oklch-full: oklch(55.22% 0.273 329.8);
+    --blue-1: var(--blue-1-oklch-full);
+    --blue-1-rgba: rgba(175, 216, 252, 1);
+    --blue-1-rgb: 175 216 252;
+    --blue-1-oklch: 86.51% 0.075 245.17;
+    --blue-1-oklch-full: oklch(86.51% 0.075 245.17);
+    --violet-1: var(--violet-1-oklch-full);
+    --violet-1-rgba: rgba(91, 57, 207, 1);
+    --violet-1-rgb: 91 57 207;
+    --violet-1-oklch: 48.19% 0.285 285.39;
+    --violet-1-oklch-full: oklch(48.19% 0.285 285.39);
     --accent-gradient-red: radial-gradient(
       circle farthest-corner at 10.2% 55.8%,
-      rgba(252, 37, 103, 1) 0%,
-      rgba(250, 38, 151, 1) 46.2%,
-      rgba(186, 8, 181, 1) 90.1%
+      var(--red-1) 0%,
+      var(--pink-1) 46.2%,
+      var(--purple-1) 90.1%
     );
     --accent-gradient-violet: radial-gradient(
       circle farthest-corner at 10% 20%,
-      rgba(175, 216, 252, 1) 0%,
-      rgba(91, 57, 207, 1) 90%
+      var(--blue-1) 0%,
+      var(--violet-1) 90%
     );
+    --gradient-multi-radial: linear-gradient(var(--pink-1), transparent),
+      linear-gradient(90deg, var(--red-1), transparent),
+      linear-gradient(-90deg, var(--purple-1), transparent);
+
+    background-blend-mode: screen;
   }
   html,
   body {

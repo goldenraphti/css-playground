@@ -2,18 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import PostsList from "../components/PostsList.astro";
 import ArrowRight from "../icons/ArrowRight.astro";
+import SplashScreen from "../components/SplashScreen.astro";
 ---
 
 <Layout title='Welcome to Astro.'>
   <main>
     <section class='splash-screen'>
-      <div>
-        <h1>Web Experiment</h1>
-        <h2>A playground to explore CSS features</h2>
-      </div>
-      <div class='illustration-spash-screen'>
-        <img src='/images/Saly-3.png' alt='a happy man on a Vespa' />
-      </div>
+      <SplashScreen />
     </section>
     <section>
       <div class='section-header'>
@@ -31,11 +26,6 @@ import ArrowRight from "../icons/ArrowRight.astro";
       main {
         margin: auto;
       }
-      h1 {
-        font-size: 6rem;
-        font-weight: 800;
-        margin: 0;
-      }
       .text-gradient {
         background-image: var(--accent-gradient-red);
         -webkit-background-clip: text;
@@ -43,40 +33,10 @@ import ArrowRight from "../icons/ArrowRight.astro";
         background-size: 400%;
         background-position: 0%;
       }
-      section {
+      section,
+      .splash-screen {
         width: 100%;
         min-height: 90vh;
-      }
-      .splash-screen {
-        display: grid;
-        place-items: center;
-        border-radius: 6rem;
-        width: calc(100% - 3rem);
-        margin: 1.5rem auto;
-        background: var(--accent-gradient-violet);
-        /* animation: BGGradient 6s ease infinite; */
-      }
-      @keyframes BGGradient {
-        0% {
-          background: var(--accent-gradient-violet);
-        }
-        50% {
-          background: var(--accent-gradient-red);
-        }
-      }
-      .splash-screen h2 {
-        font-style: italic;
-        font-weight: 100;
-        font-size: 2rem;
-        padding-left: 1rem;
-      }
-      section:not(.splash-screen) > * {
-        margin: auto;
-        max-width: 60ch;
-      }
-      section .section-header {
-        display: flex;
-        align-items: baseline;
       }
       section:not(.splash-screen) .section-header .arrow {
         margin-left: 6px;
@@ -85,10 +45,13 @@ import ArrowRight from "../icons/ArrowRight.astro";
       section:not(.splash-screen) .section-header:hover .arrow {
         transform: translate3d(5px, 0, 0);
       }
-      .illustration-spash-screen img {
-        max-width: 300px;
-        position: absolute;
-        top: 250px;
+      section:not(:first-child) > * {
+        margin: auto;
+        max-width: 60ch;
+      }
+      section .section-header {
+        display: flex;
+        align-items: baseline;
       }
     </style>
   </main>

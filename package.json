@@ -12,5 +12,9 @@
   "dependencies": {
     "@fontsource/dm-serif-display": "^4.5.10",
     "astro": "^2.0.18"
+  },
+  "devDependencies": {
+    "@csstools/postcss-oklab-function": "^2.1.0",
+    "postcss-cli": "^10.1.0"
   }
 }
