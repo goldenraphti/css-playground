@@ -10,8 +10,8 @@ export const experimentsPagesDetails = [
   {
     path: "css-layers.astro",
     title: "CSS Layers",
-    bgColor: "--red-1-oklch-25",
-    textColor: "--red-1-oklch-full",
+    bgColor: "--pink-1-oklch-25",
+    textColor: "--pink-1-oklch-full",
     illustration: "Saly-11.png",
     tags: ["css", "experiment"],
   },
@@ -26,9 +26,9 @@ export const experimentsPagesDetails = [
   {
     path: "subgrid.astro",
     title: "Subgrid",
-    bgColor: "--pink-1-oklch-25",
-    textColor: "--pink-1-oklch-full",
-    illustration: "Saly-17.png",
+    bgColor: "--red-1-oklch-25",
+    textColor: "--red-1-oklch-full",
+    illustration: "Block_Matrix_x3_0003.png",
     tags: ["css", "experiment", "grid"],
   },
   {
