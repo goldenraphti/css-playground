@@ -20,7 +20,7 @@ const { object, duration } = Astro.props;
     background-color: #fff;
     border-radius: 3rem 3rem 0 0;
     position: absolute;
-    bottom: calc(0px + 70px);
+    bottom: 25px;
     width: 120px;
     height: 120px;
     display: flex;
@@ -51,6 +51,11 @@ const { object, duration } = Astro.props;
   .bounce {
     animation-name: bounceScroll;
     animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+  @media screen and (min-width: 1000px) {
+    .scroll-down {
+      bottom: calc(0px + 70px);
+    }
   }
   @keyframes bounceScroll {
     0% {
