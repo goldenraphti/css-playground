@@ -28,6 +28,7 @@ import SplashScreen from "../components/SplashScreen.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
+        scroll-snap-type: y proximity;
       }
       .text-gradient {
         background-image: var(--accent-gradient-red);
@@ -40,6 +41,7 @@ import SplashScreen from "../components/SplashScreen.astro";
       .splash-screen {
         width: 100%;
         min-height: 90vh;
+        scroll-snap-align: start;
       }
       section:not(.splash-screen) .section-header .arrow {
         margin-left: 6px;
