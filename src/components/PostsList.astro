@@ -21,13 +21,15 @@ const posts = ["has", "subgrid", "container", "css layers"];
   ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 3rem;
     list-style-type: none;
+    padding: 0;
+    max-width: 80vw;
+    margin: auto;
   }
   li {
     position: relative;
-    /* display: grid;
-    grid-template-areas: ''; */
   }
   a {
     border-radius: 25px;
@@ -40,6 +42,7 @@ const posts = ["has", "subgrid", "container", "css layers"];
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    color: var(--purple-1-oklch-full);
   }
   li img {
     width: 150px;
@@ -49,23 +52,23 @@ const posts = ["has", "subgrid", "container", "css layers"];
     right: 10px;
   }
   li:nth-of-type(1) a {
-    background: var(--violet-1);
-    color: #fff;
+    background: var(--violet-1-oklch-25);
+    color: var(--violet-1-oklch-full);
   }
   li:nth-of-type(2) a {
-    background: var(--red-1);
-    color: #fff;
+    background: var(--red-1-oklch-25);
+    color: var(--red-1-oklch-full);
   }
   li:nth-of-type(3) a {
-    background: var(--blue-1);
-    color: #fff;
+    background: var(--blue-1-oklch-25);
+    color: var(--blue-1-oklch-full);
   }
   li:nth-of-type(4) a {
-    background: var(--pink-1);
-    color: #fff;
+    background: var(--pink-1-oklch-25);
+    color: var(--pink-1-oklch-full);
   }
   li:nth-of-type(5) a {
-    background: var(--purple-1);
-    color: #fff;
+    background: var(--purple-1-oklch-25);
+    color: var(--purple-1-oklch-full);
   }
 </style>

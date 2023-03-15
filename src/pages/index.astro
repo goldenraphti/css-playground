@@ -25,6 +25,9 @@ import SplashScreen from "../components/SplashScreen.astro";
     <style>
       main {
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .text-gradient {
         background-image: var(--accent-gradient-red);
@@ -45,13 +48,14 @@ import SplashScreen from "../components/SplashScreen.astro";
       section:not(.splash-screen) .section-header:hover .arrow {
         transform: translate3d(5px, 0, 0);
       }
-      section:not(:first-child) > * {
-        margin: auto;
-        max-width: 60ch;
+      section:not(.splash-screen) {
+        padding-top: 100px;
+        max-width: 80vw;
       }
       section .section-header {
         display: flex;
         align-items: baseline;
+        align-self: flex-start;
       }
     </style>
   </main>
