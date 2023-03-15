@@ -62,6 +62,14 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     font-weight: 600;
     background: var(--bg-color);
     color: var(--txt-color);
+    transition: outline ease-in-out 0.1s;
+    outline: 1px solid transparent;
+  }
+  a:hover {
+    outline: 1px solid var(--txt-color);
+  }
+  a:focus-visible {
+    outline: 3px solid var(--txt-color);
   }
   li .title {
     grid-column: 1 / -1;

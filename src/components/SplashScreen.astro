@@ -56,6 +56,7 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     max-width: 400px;
     position: absolute;
     bottom: 250px;
+    animation: bounce-wait2 5s ease-in-out infinite;
   }
   @media screen and (min-width: 1000px) {
     h1 {
@@ -63,6 +64,33 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     }
     h2 {
       font-size: 2rem;
+    }
+  }
+
+  @keyframes bounce-wait2 {
+    0% {
+      transform: translateY(0);
+      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+    }
+    20% {
+      transform: translateY(-8px) scale3d(1.005, 1.005, 1);
+      filter: drop-shadow(30px 30px 15px oklch(55.22% 0.1 329.8 / 45%));
+    }
+    31% {
+      transform: translateY(0);
+      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+    }
+    42% {
+      transform: translateY(-8px) scale3d(1.005, 1.005, 1);
+      filter: drop-shadow(30px 30px 15px oklch(55.22% 0.1 329.8 / 45%));
+    }
+    79% {
+      transform: translateY(0);
+      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+    }
+    100% {
+      transform: translateY(0);
+      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
     }
   }
 </style>
