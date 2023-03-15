@@ -49,7 +49,7 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     text-shadow: var(--purple-1-oklch-full) 0 0 20px;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin: 0;
   }
@@ -75,17 +75,18 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     max-width: 400px;
     position: absolute;
     top: -50px;
-    left: -140px;
+    right: 30%;
     z-index: 0;
     filter: drop-shadow(20px 15px 20px oklch(30% 0.1 329.8 / 45%));
     animation: 5s bounce-wait2 0.3s ease-in-out infinite;
   }
   .illustration-spash-screen img {
     width: 30vw;
-    min-width: 150px;
+    min-width: 200px;
     max-width: 400px;
     position: absolute;
     bottom: 250px;
+    right: 30%;
     animation: bounce-wait2 5s ease-in-out infinite;
   }
   @media screen and (min-width: 1000px) {
@@ -94,6 +95,12 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     }
     h2 {
       font-size: 2rem;
+    }
+    .splash-text h1 img {
+      left: -140px;
+    }
+    .illustration-spash-screen img {
+      right: 25%;
     }
   }
 
