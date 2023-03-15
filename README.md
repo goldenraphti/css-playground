@@ -4,7 +4,6 @@
 
 ## Roadmap
 
-- [ ] add scroll snap on homepage
 - [ ] improve mobile style (border bottom splash) + replace illustration splash + border outline link cards
 - [ ] create page 404
 - [ ] migrate previous explorations
