@@ -3,8 +3,15 @@ import BouncingScroll from "../components/BouncingScroll.astro";
 ---
 
 <div class='splash-screen-container'>
-  <div>
-    <h1>Web Experiment</h1>
+  <div class='splash-text'>
+    <h1>
+      <span>Web Experiment</span>
+      <img
+        src='/images/3d-rendering-ecosystem.png'
+        alt='a happy man on a Vespa'
+        class='illustration-spash-screen'
+      />
+    </h1>
     <h2>A playground to explore CSS features</h2>
     <p class='definition'>
       <span>experiment</span>
@@ -33,7 +40,7 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     height: 90vh;
     margin: 1.5rem auto;
     background: var(--gradient-multi-radial);
-    color: #fff;
+    color: oklch(20% 0.273 329.8);
     padding: 1rem;
     position: relative;
   }
@@ -49,6 +56,25 @@ import BouncingScroll from "../components/BouncingScroll.astro";
   }
   .definition {
     display: none;
+  }
+  .splash-text h1 {
+    position: relative;
+  }
+
+  .splash-text h1 span {
+    z-index: 2;
+    position: relative;
+  }
+  .splash-text h1 img {
+    width: 15vw;
+    min-width: 150px;
+    max-width: 400px;
+    position: absolute;
+    top: -50px;
+    left: -140px;
+    z-index: 0;
+    filter: drop-shadow(20px 15px 20px oklch(30% 0.1 329.8 / 45%));
+    animation: 5s bounce-wait2 0.3s ease-in-out infinite;
   }
   .illustration-spash-screen img {
     width: 30vw;
