@@ -10,5 +10,6 @@
 - [ ] style images for each page link card
 - [ ] create SEO & open graph
 - [ ] add favicon
+- [ ] check weight illustration & optimize images
 
 ## Credits
