@@ -18,8 +18,8 @@ export const experimentsPagesDetails = [
   {
     path: "has-selector.astro",
     title: ".has() selector",
-    bgColor: "--blue-1-oklch-25",
-    textColor: "--blue-1-oklch-full",
+    bgColor: "--blue-1-darker-1-oklch-25",
+    textColor: "--blue-1-darker-1-oklch-full",
     illustration: "Saly-8.png",
     tags: ["css", "experiment", "selector"],
   },

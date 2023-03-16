@@ -51,7 +51,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
   a {
     border-radius: 25px;
     height: 200px;
-    width: 300px;
+    width: 250px;
     padding: 2rem;
     display: grid;
     grid-template-rows: 10% 60% 10% 10%;
@@ -70,7 +70,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     box-shadow: var(--bg-color) 0 0 50px;
   }
   a:focus-visible {
-    border: 3px solid var(--txt-color);
+    outline: 2px solid var(--txt-color);
   }
   li .title {
     grid-column: 1 / -1;
@@ -98,5 +98,10 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     background: var(--bg-color);
     padding: 4px 6px;
     border-radius: 5px;
+  }
+  @media screen and (min-width: 800px) {
+    a {
+      width: 300px;
+    }
   }
 </style>

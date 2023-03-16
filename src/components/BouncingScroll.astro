@@ -17,12 +17,14 @@ const { object, duration } = Astro.props;
 
 <style>
   .scroll-down {
+    --width: 120px;
     background-color: #fff;
     border-radius: 3rem 3rem 0 0;
     position: absolute;
     bottom: -1px;
+    left: calc(50% - (var(--width) / 2));
     padding-bottom: 1px;
-    width: 120px;
+    width: var(--width);
     height: 120px;
     display: flex;
     justify-content: center;
