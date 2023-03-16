@@ -1,6 +1,6 @@
 export const experimentsPagesDetails = [
   {
-    path: "container-queries.astro",
+    path: "container-queries",
     title: "Container Queries",
     bgColor: "--violet-1-oklch-25",
     textColor: "--violet-1-oklch-full",
@@ -8,7 +8,7 @@ export const experimentsPagesDetails = [
     tags: ["css", "experiment", "html"],
   },
   {
-    path: "css-layers.astro",
+    path: "css-layers",
     title: "CSS Layers",
     bgColor: "--pink-1-oklch-25",
     textColor: "--pink-1-oklch-full",
@@ -16,7 +16,7 @@ export const experimentsPagesDetails = [
     tags: ["css", "experiment"],
   },
   {
-    path: "has-selector.astro",
+    path: "has-selector",
     title: ".has() selector",
     bgColor: "--blue-1-darker-1-oklch-25",
     textColor: "--blue-1-darker-1-oklch-full",
@@ -24,7 +24,7 @@ export const experimentsPagesDetails = [
     tags: ["css", "experiment", "selector"],
   },
   {
-    path: "subgrid.astro",
+    path: "subgrid",
     title: "Subgrid",
     bgColor: "--red-1-oklch-25",
     textColor: "--red-1-oklch-full",
@@ -32,7 +32,7 @@ export const experimentsPagesDetails = [
     tags: ["css", "experiment", "grid"],
   },
   {
-    path: "view-transitions.astro",
+    path: "view-transitions",
     title: "View transitions",
     bgColor: "--purple-1-oklch-25",
     textColor: "--purple-1-oklch-full",
@@ -40,7 +40,7 @@ export const experimentsPagesDetails = [
     tags: ["css", "experiment", "html"],
   },
   {
-    path: "oklch.astro",
+    path: "oklch",
     title: "oklch() color",
     bgColor: "--violet-1-oklch-25",
     textColor: "--violet-1-oklch-full",
