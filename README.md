@@ -6,11 +6,14 @@
 
 ## Roadmap
 
-- [ ] improve mobile style (border bottom splash) + replace illustration splash + border outline link cards
+- [ ] improve mobile style (reposition illustration splash)
 - [ ] create page 404
 - [ ] migrate previous explorations
-- [ ] style images for each page link card
 - [ ] check weight illustration & optimize images
 - [ ] add things to splash screen (illustrations of coding / lab / css / html / js)
 
 ## Credits
+
+- 3D images
+  - Joseph Angelo Todaro @ [Shapefest](https://www.shapefest.com/)
+  - Saly 3d by [Alzea](https://www.figma.com/community/file/890095002328610853/SALY---3D-Illustration-Pack)
