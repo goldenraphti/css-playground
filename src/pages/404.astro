@@ -28,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
     padding: 5vw 10vw;
     flex: 1;
     background: var(--primary-color-25);
-    border-radius: 0 0 6rem 6rem;
+    border-radius: 0 0 3rem 3rem;
   }
   h1 {
     font-size: 3rem;
@@ -52,6 +52,9 @@ import Layout from "../layouts/Layout.astro";
     animation: 5s bounce-wait 0.3s ease-in-out infinite;
   }
   @media screen and (min-width: 800px) {
+    main {
+      border-radius: 0 0 4rem 4rem;
+    }
     h1 {
       font-size: 4rem;
     }
@@ -67,6 +70,9 @@ import Layout from "../layouts/Layout.astro";
     }
   }
   @media screen and (min-width: 1000px) {
+    main {
+      border-radius: 0 0 5.5rem 5.5rem;
+    }
     .storm,
     .ghost {
       width: 200px;
