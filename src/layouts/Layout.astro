@@ -76,12 +76,27 @@ import BaseHead from "../components/BaseHead.astro";
       html,
       body {
         max-width: 100vw;
-        height: 100%;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
       }
       html {
         font-family: system-ui, sans-serif;
+        min-height: 100vh;
+      }
+      body {
+        min-height: 100vh;
+        height: 100%;
+      }
+      main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
       }
       code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
@@ -102,6 +117,60 @@ import BaseHead from "../components/BaseHead.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+      .btn {
+        color: var(--primary-color-full, var(--purple-1-oklch-full));
+        border: var(--primary-color-full, var(--purple-1-oklch-full)) 1px solid;
+        border-radius: 6px;
+        padding: 8px 12px 10px;
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out, color 0.1s ease-in-out;
+      }
+      .btn:hover {
+        color: #fff;
+        background-color: var(--primary-color-full, var(--purple-1-oklch-full));
+        border-color: transparent;
+        box-shadow: 0 0 20px var(--primary-color-25, var(--purple-1-oklch-25));
+      }
+      .btn.lg {
+        font-size: 1.2rem;
+        padding: 10px 15px 12px;
+      }
+      @media screen and (min-width: 800px) {
+        .btn {
+          font-size: 0.8rem;
+          padding: 6px 10px 8px;
+        }
+        .btn.lg {
+          font-size: 1rem;
+          padding: 8px 12px 10px;
+        }
+      }
+      @keyframes bounce-wait {
+        0% {
+          transform: translateY(0);
+          filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+        }
+        20% {
+          transform: translateY(-8px) scale3d(1.005, 1.005, 1);
+          filter: drop-shadow(30px 30px 15px oklch(55.22% 0.1 329.8 / 45%));
+        }
+        31% {
+          transform: translateY(0);
+          filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+        }
+        42% {
+          transform: translateY(-8px) scale3d(1.005, 1.005, 1);
+          filter: drop-shadow(30px 30px 15px oklch(55.22% 0.1 329.8 / 45%));
+        }
+        79% {
+          transform: translateY(0);
+          filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+        }
+        100% {
+          transform: translateY(0);
+          filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
+        }
       }
     </style>
   </body>

@@ -88,7 +88,7 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     right: 30%;
     z-index: 0;
     filter: drop-shadow(20px 15px 20px oklch(30% 0.1 329.8 / 45%));
-    animation: 5s bounce-wait2 0.3s ease-in-out infinite;
+    animation: 5s bounce-wait 0.3s ease-in-out infinite;
   }
   img.illustration-spash-screen {
     width: 30vw;
@@ -98,7 +98,7 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     bottom: 110px;
     right: 30%;
     z-index: 5;
-    animation: bounce-wait2 5s ease-in-out infinite;
+    animation: bounce-wait 5s ease-in-out infinite;
   }
   @media screen and (min-width: 1000px) {
     .splash-screen-container {
@@ -115,33 +115,6 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     }
     img.illustration-spash-screen {
       right: 25%;
-    }
-  }
-
-  @keyframes bounce-wait2 {
-    0% {
-      transform: translateY(0);
-      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
-    }
-    20% {
-      transform: translateY(-8px) scale3d(1.005, 1.005, 1);
-      filter: drop-shadow(30px 30px 15px oklch(55.22% 0.1 329.8 / 45%));
-    }
-    31% {
-      transform: translateY(0);
-      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
-    }
-    42% {
-      transform: translateY(-8px) scale3d(1.005, 1.005, 1);
-      filter: drop-shadow(30px 30px 15px oklch(55.22% 0.1 329.8 / 45%));
-    }
-    79% {
-      transform: translateY(0);
-      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
-    }
-    100% {
-      transform: translateY(0);
-      filter: drop-shadow(30px 10px 10px oklch(55.22% 0.1 329.8 / 45%));
     }
   }
   @keyframes cross-screen {
