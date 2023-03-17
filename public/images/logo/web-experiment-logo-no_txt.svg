@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="48.80682mm"
-   height="52.076668mm"
-   viewBox="0 0 48.80682 52.076668"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
    xml:space="preserve"
@@ -35,18 +35,22 @@
      inkscape:current-layer="layer1"><inkscape:grid
        type="xygrid"
        id="grid3667" /></sodipodi:namedview><defs
-     id="defs2" /><g
+     id="defs2"><rect
+       x="257.84095"
+       y="350.29907"
+       width="423.22378"
+       height="161.47616"
+       id="rect238" /></defs><g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-14.87334,-86.198034)"><path
+     id="layer1"><path
        d="m 46.193304,94.688851 v 3.457821 h -1.72891 v 5.606858 c 0,2.00208 0.433957,3.97822 1.272478,5.79531 l 7.403194,16.03737 c 0.599932,1.30187 0.03112,2.84233 -1.26902,3.44053 -0.340595,0.15906 -0.710582,0.24032 -1.085756,0.24032 H 27.770035 c -1.431538,0 -2.593365,-1.16183 -2.593365,-2.59337 0,-0.37517 0.08126,-0.74689 0.238589,-1.08748 l 7.403195,-16.03737 c 0.838521,-1.81536 1.272478,-3.79323 1.272478,-5.79531 V 98.146672 H 32.362021 V 94.688851 Z M 41.67739,108.52186 h -4.799455 c -0.179807,0.6276 -0.397649,1.24655 -0.646612,1.85167 l -0.273168,0.62413 -6.837841,14.81158 h 20.312968 l -6.836111,-14.81158 c -0.369987,-0.80221 -0.677733,-1.63036 -0.919781,-2.4758 z m -4.128638,-4.76833 c 0,0.43741 -0.01729,0.87483 -0.05014,1.31051 h 3.558098 c -0.01729,-0.2092 -0.02766,-0.41839 -0.03631,-0.62932 l -0.01383,-0.68119 v -5.606858 h -3.457821 z"
        id="path11"
        style="display:inline;fill:#c000bb;fill-opacity:1;stroke:#ffffff;stroke-width:1.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
        inkscape:label="flask"
-       inkscape:export-filename="web-experiment-logo-no_txt-black.svg"
+       inkscape:export-filename="web-experiment-logo-no_txt-purple.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" /><path
-       style="fill:#ff00ff;fill-opacity:0;stroke:#c000bb;stroke-width:1.945;stroke-opacity:1;paint-order:fill markers stroke"
+       style="fill:#ff00ff;fill-opacity:0;stroke:#c000bb;stroke-width:1.945;paint-order:fill markers stroke;stroke-opacity:1"
        d="M 16.021461,87.170534 H 51.682133 V 101.46926 H 62.707657 V 137.3022 H 15.849188 Z"
        id="path375" /></g></svg>
