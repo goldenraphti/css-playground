@@ -1,0 +1,32 @@
+---
+import Resources from "../components/Resources.astro";
+import Support from "../components/Support.astro";
+import Topbar from "../components/Topbar.astro";
+import Intro from "../components/Intro.astro";
+import type { Resource } from "../components/Resources.astro";
+import ExperimentTLDR from "../components/ExperimentTLDR.astro";
+import Opinions from "../components/Opinions.astro";
+import ExperimentSection from "../components/ExperimentSection.astro";
+
+export interface Props {
+  title: string;
+  resources: Resource[];
+  feature: string;
+  tldrContent: string;
+  opinions: string[];
+}
+
+const { title, resources, feature, tldrContent, opinions } = Astro.props;
+---
+
+<Topbar />
+<main>
+  <Intro title={title} />
+  <ExperimentTLDR tldrContent={tldrContent} />
+  <ExperimentSection>
+    <slot />
+  </ExperimentSection>
+  <Opinions opinions={opinions} />
+  <Resources resources={resources} />
+  <Support feature={feature} />
+</main>

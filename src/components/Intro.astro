@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<section>
+  <h1>{title}</h1>
+</section>
+<style>
+  section {
+    --primary-color-full: var(--purple-1-oklch-full);
+    --primary-color-25: var(--purple-1-oklch-25);
+    padding: 15vw 10vw 5vw;
+    flex: 1;
+    background: var(--primary-color-25);
+    border-radius: 0 0 3rem 3rem;
+    align-self: stretch;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+  }
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: var(--purple-1-oklch-full);
+  }
+</style>

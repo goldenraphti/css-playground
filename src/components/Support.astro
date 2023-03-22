@@ -1,0 +1,44 @@
+---
+interface Props {
+  feature: string;
+}
+const { feature } = Astro.props;
+---
+
+<script
+  src='https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js'
+></script>
+
+<details>
+  <summary>💻 Support for {feature}</summary>
+  <p
+    class='ciu_embed'
+    data-feature={feature}
+    data-periods='future_1,current,past_1,past_2,past_3'
+    data-accessible-colours='false'
+  >
+    <picture>
+      <source
+        type='image/webp'
+        srcset={`https://caniuse.bitsofco.de/image/${feature}.webp`}
+      />
+      <source
+        type='image/png'
+        srcset={`https://caniuse.bitsofco.de/image/${feature}.png`}
+      />
+      <img
+        src={`https://caniuse.bitsofco.de/image/${feature}.jpg`}
+        alt={`Data on support for the ${feature} feature across the major browsers from caniuse.com`}
+      />
+    </picture>
+  </p>
+</details>
+
+<style>
+  p {
+    max-width: 100vw;
+  }
+  iframe main {
+    background-color: blueviolet;
+  }
+</style>

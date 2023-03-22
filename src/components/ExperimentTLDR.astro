@@ -1,0 +1,11 @@
+---
+interface Props {
+  tldrContent: string;
+}
+const { tldrContent } = Astro.props;
+---
+
+<section>
+  <h2>TL;DR</h2>
+  <p>{tldrContent}</p>
+</section>

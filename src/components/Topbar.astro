@@ -1,0 +1,44 @@
+---
+import LogoTaglineBlack from "../icons/LogoTaglineBlack.astro";
+---
+
+<header>
+  <nav>
+    <a class='logo' href='/'><LogoTaglineBlack /></a>
+  </nav>
+</header>
+
+<style>
+  header {
+    padding: 20px;
+    position: absolute;
+    z-index: 2;
+  }
+  nav {
+  }
+  nav a {
+    padding: 10px;
+    border-radius: 6px;
+    background: var(--background-primary);
+    width: 150px;
+    border: 1.5px solid var(--purple-1);
+    box-shadow: var(--shadow-elevation-high);
+    height: 100%;
+    display: block;
+    transition: all 0.2s ease-in-out;
+  }
+  nav a > :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+  nav a > :global(svg path) {
+    stroke: black;
+  }
+  nav a > :global(svg text) {
+    fill: black;
+  }
+  nav a:hover {
+    background: var(--gradient-multi-radial);
+    border-color: transparent;
+  }
+</style>

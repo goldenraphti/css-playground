@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExperimentLayout from "../../layouts/ExperimentLayout.astro";
+import HasExperiment from "../../experimentsHtml/HasExperiment.astro";
+
+const title = "has() selector";
+const feature = "css-has";
+
+const tldrContent = `CSS declarations do not need to be children to be impacted by another
+        element. It is the parent selector and more, since you can then bring up
+        the state and go down another branch of teh DOM tree`;
+
+const opinions = [
+  `AWESOME !!! 🔥 CSS just became a lot easier and fun to use !`,
+  `we'll be able to remove tons of js`,
+  `we're probably only grasping the impact this can have on the way we
+    author our UI. Porbably one of the most impactful CSS feature of the
+    recent years passed and to come
+  `,
+  `Not usable in production yet because of support, but we should start
+    thinking about how we would already code things differently if we
+    had it, so we mentally start to understand all the possibilities
+  `,
+];
+
+const resources = [
+  {
+    author: "Jen Simmons in Webkit blog",
+    link: new URL("https://webkit.org/blog/13096/css-has-pseudo-class/"),
+    title: "Using :has() as a CSS Parent Selector and much more",
+  },
+  {
+    author: "Ahmad Shadeed",
+    link: new URL("https://ishadeed.com/article/css-has-parent-selector/"),
+    title: "CSS Parent Selector",
+  },
+  {
+    author: "Kevin Powell video",
+    link: new URL("https://www.youtube.com/watch?v=OGJvhpoE8b4"),
+    title: "I never thought this would be possible with CSS",
+  },
+];
+---
+
+<Layout title={`${title} - Web Experiment - Raphaël Ferrand`}>
+  <ExperimentLayout
+    title={title}
+    resources={resources}
+    feature={feature}
+    tldrContent={tldrContent}
+    opinions={opinions}
+  >
+    <HasExperiment />
+  </ExperimentLayout>
+</Layout>
+
+<style></style>

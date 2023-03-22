@@ -1,0 +1,27 @@
+---
+interface Props {
+  resources: Resource[];
+}
+export interface Resource {
+  link: URL;
+  title: string;
+  author: string;
+}
+const { resources } = Astro.props;
+---
+
+<section class='resources'>
+  <h2>📚 Resources</h2>
+  <ul>
+    {
+      resources.map((resource) => (
+        <li>
+          <a href={resource.link}>
+            {resource.author}, "{resource.title}"
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<style></style>

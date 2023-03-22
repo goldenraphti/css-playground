@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExperimentLayout from "../../layouts/ExperimentLayout.astro";
+import ContainerQueriesExperiment from "../../experimentsHtml/ContainerQueriesExperiment.astro";
+
+const title = "Container Queries";
+const feature = "css-container-queries";
+
+const tldrContent = `Before: base element style based on class OR viewport</p>
+        Now: style based on its OWN width`;
+
+const opinions = [
+  `Can thrown Resizing Observer to the trash bin 🚮`,
+  `Amazing especially when building components meant to be used in
+    context out of your hands (e.g. building things for CMS where
+    editors build themselves their UI, or .... Design Systems 😉`,
+  `Not enough support yet for production`,
+  `So far, found it hard the 'container-type: inline-size;'VS
+  'container-type: size;'`,
+];
+
+const resources = [
+  {
+    author: "Ahmad Shadeed",
+    link: new URL(
+      "https://ishadeed.com/article/container-queries-are-finally-here/"
+    ),
+    title: "CSS container queries are finally here",
+  },
+  {
+    author: "Kevin Powell video",
+    link: new URL("https://www.youtube.com/watch?v=3_-Je5XpbqY"),
+    title: "Container Queries are going to change how we make layouts",
+  },
+];
+---
+
+<Layout title={`${title} - Web Experiment - Raphaël Ferrand`}>
+  <ExperimentLayout
+    title={title}
+    resources={resources}
+    feature={feature}
+    tldrContent={tldrContent}
+    opinions={opinions}
+  >
+    <ContainerQueriesExperiment />
+  </ExperimentLayout>
+</Layout>
+
+<style></style>

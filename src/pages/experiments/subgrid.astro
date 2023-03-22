@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExperimentLayout from "../../layouts/ExperimentLayout.astro";
+import SubgridExperiment from "../../experimentsHtml/SubgridExperiment.astro";
+
+const title = "CSS Subgrid";
+const feature = "css-subgrid";
+
+const tldrContent = `Grid is amazing for unique layout. But alignment between different
+        sibling was impossible. Which is everywhere in content/data driven
+        website. Subgrid fixes this.`;
+
+const opinions = [
+  `No support for Chromium, not even behind flag 😬`,
+  `Awesome, because in reality it is always nested in sibling`,
+  `Not that straight forward, it will require practice, as with CSS
+    grid in general
+  `,
+];
+
+const resources = [
+  {
+    author: "Ahmad Shadeed",
+    link: new URL("https://ishadeed.com/article/learn-css-subgrid/"),
+    title: "Learn CSS subgrid",
+  },
+];
+---
+
+<Layout title={`${title} - Web Experiment - Raphaël Ferrand`}>
+  <ExperimentLayout
+    title={title}
+    resources={resources}
+    feature={feature}
+    tldrContent={tldrContent}
+    opinions={opinions}
+  >
+    <SubgridExperiment />
+  </ExperimentLayout>
+</Layout>
+
+<style></style>

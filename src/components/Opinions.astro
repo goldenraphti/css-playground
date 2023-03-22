@@ -1,0 +1,13 @@
+---
+interface Props {
+  opinions: string[];
+}
+const { opinions } = Astro.props;
+---
+
+<section>
+  <h2>🤔 Opinion</h2>
+  <ul>
+    {opinions.map((opinion) => <li>{opinion}</li>)}
+  </ul>
+</section>
