@@ -48,6 +48,10 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
   li {
     position: relative;
   }
+  li:hover img {
+    transform: scale3d(1.05, 1.05, 1.05) rotate(-2deg);
+    filter: drop-shadow(4px 4px 3px var(--bg-color));
+  }
   a {
     border-radius: 25px;
     height: 200px;
@@ -84,6 +88,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     position: absolute;
     bottom: 10px;
     right: 10px;
+    transition: all ease-in-out 0.4s;
   }
   .tags {
     display: flex;
