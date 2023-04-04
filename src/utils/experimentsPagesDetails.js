@@ -69,4 +69,14 @@ export const experimentsPagesDetails = [
     deployed: false,
     coming: true,
   },
+  {
+    path: "color-mix",
+    title: "color-mix() function",
+    bgColor: "--purple-1-oklch-25",
+    textColor: "--purple-1-oklch-full",
+    illustration: "3d-plastic-people-tv.png",
+    tags: ["css", "experiment", "color"],
+    deployed: false,
+    coming: true,
+  },
 ];
