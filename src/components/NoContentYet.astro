@@ -5,15 +5,26 @@ import Layout from "../layouts/Layout.astro";
 <Layout title='Web Experiment - Raphael Ferrand digital garden'>
   <main>
     <h1>This page is not ready yet ... gloups ... sorry</h1>
+    <img class='illustration cloud-1' src='/images/cloud-1.png' alt='cloud' />
     <img
-      class='illustration storm'
-      src='/images/storm-rain.png'
-      alt='storm & rainy dark cloud'
+      class='illustration clouds-2'
+      src='/images/clouds-1.png'
+      alt='clouds'
     />
     <img
       class='illustration ghost'
-      src='/images/pink-ghost.png'
-      alt='cute pink ghost'
+      src='/images/ghost-1.png'
+      alt='cute ghost'
+    />
+    <img
+      class='illustration bird'
+      src='/images/cute-flying-yellow-bird.png'
+      alt='cute bird'
+    />
+    <img
+      class='illustration cocktail'
+      src='/images/cocktail-3.png'
+      alt='cocktail'
     />
     <a href='/' class='btn lg'>Get me back to the homepage</a>
   </main>
@@ -34,30 +45,51 @@ import Layout from "../layouts/Layout.astro";
   }
   .illustration {
     position: absolute;
+    width: clamp(100px, 15%, 300px);
+    height: auto;
   }
-  .storm {
-    width: 100px;
-    top: 5%;
-    left: 20%;
+  .cloud-1 {
+    width: clamp(100px, 25%, 200px);
+    top: 60%;
+    left: 23%;
     animation: 5s bounce-wait 0s ease-in-out infinite;
+    z-index: 2;
+    display: none;
+  }
+  .cocktail {
+    width: clamp(100px, 25%, 200px);
+    top: 50%;
+    left: 20%;
+    animation: 5s bounce-wait 1s ease-in-out infinite;
+    display: none;
+  }
+  .clouds-2 {
+    width: clamp(100px, 20%, 300px);
+    top: 10%;
+    right: 16%;
+    animation: 5s bounce-wait 0.7s ease-in-out infinite;
+  }
+  .bird {
+    width: clamp(70px, 15%, 200px);
+    top: 12%;
+    right: 12%;
+    animation: 5s bounce-wait 0.5s ease-in-out infinite;
   }
   .ghost {
-    width: 100px;
-    height: auto;
     bottom: 2%;
     right: 20%;
-    animation: 5s bounce-wait 0.3s ease-in-out infinite;
+    animation: 5s bounce-wait 0.2s ease-in-out infinite;
   }
   @media screen and (min-width: 800px) {
+    .cloud-1,
+    .cocktail {
+      display: block;
+    }
     main {
       border-radius: 0 0 4rem 4rem;
     }
     h1 {
       font-size: 4rem;
-    }
-    .storm,
-    .ghost {
-      width: 300px;
     }
     .storm {
       top: 15%;
