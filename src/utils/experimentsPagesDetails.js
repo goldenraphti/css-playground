@@ -6,7 +6,7 @@ export const experimentsPagesDetails = [
     textColor: "--violet-1-oklch-full",
     illustration: "Saly-20.png",
     tags: ["css", "experiment", "html"],
-    deployed: false,
+    deployed: true,
     coming: false,
   },
   {
@@ -26,7 +26,7 @@ export const experimentsPagesDetails = [
     textColor: "--blue-1-darker-1-oklch-full",
     illustration: "Saly-8.png",
     tags: ["css", "experiment", "selector"],
-    deployed: false,
+    deployed: true,
     coming: false,
   },
   {
@@ -46,7 +46,7 @@ export const experimentsPagesDetails = [
     textColor: "--blue-1-darker-1-oklch-full",
     illustration: "Block_Matrix_x3_0003.png",
     tags: ["css", "experiment", "grid"],
-    deployed: false,
+    deployed: true,
     coming: false,
   },
   {

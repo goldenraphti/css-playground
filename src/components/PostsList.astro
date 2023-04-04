@@ -15,21 +15,45 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
   {
     experimentsPagesDetails.map((experiment, i) => (
       <li>
-        <a
-          href={`/experiments/${experiment.path}`}
-          style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
-        >
-          <div class='tags'>
-            {experiment.tags.map((tag) => (
-              <span>{tag}</span>
-            ))}
+        {experiment.deployed ? (
+          <a
+            class='post-link-card'
+            href={`/experiments/${experiment.path}`}
+            style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
+          >
+            <div class='tags'>
+              {experiment.tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
+            <div class='title'>{experiment.title}</div>
+            <img
+              src={`/images/${
+                experiment?.illustration ?? linksIllustrations[i]
+              }`}
+              alt=''
+            />
+          </a>
+        ) : (
+          <div
+            class='post-link-card disabled'
+            style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
+          >
+            <div class='tags'>
+              {experiment.tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
+            <div class='title'>{experiment.title}</div>
+            <img
+              src={`/images/${
+                experiment?.illustration ?? linksIllustrations[i]
+              }`}
+              alt=''
+            />
+            <div class='soon'>Soon</div>
           </div>
-          <div class='title'>{experiment.title}</div>
-          <img
-            src={`/images/${experiment?.illustration ?? linksIllustrations[i]}`}
-            alt=''
-          />
-        </a>
+        )}
       </li>
     ))
   }
@@ -48,11 +72,11 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
   li {
     position: relative;
   }
-  li:hover img {
+  li:hover a.post-link-card img {
     transform: scale3d(1.05, 1.05, 1.05) rotate(-2deg);
     filter: drop-shadow(4px 4px 3px var(--bg-color));
   }
-  a {
+  .post-link-card {
     border-radius: 25px;
     height: 200px;
     width: 250px;
@@ -64,17 +88,36 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    background: var(--grey-disabled);
+    color: var(--grey-disabled-dark);
+  }
+  a.post-link-card {
     background: var(--bg-color);
     color: var(--txt-color);
     transition: border ease-in-out 0.1s;
     border: 1px solid transparent;
   }
-  a:hover {
+  a.post-link-card:hover {
     border: 1px solid var(--txt-color);
     box-shadow: var(--bg-color) 0 0 50px;
   }
-  a:focus-visible {
+  a.post-link-card:focus-visible {
     outline: 2px solid var(--txt-color);
+  }
+  div.post-link-card {
+    opacity: 0.5;
+  }
+  div.post-link-card div.soon {
+    text-transform: none;
+    background: var(--background-primary);
+    color: initial;
+    position: absolute;
+    padding: 6px 15px 8px;
+    border-radius: 15px;
+    top: 50%;
+    left: 35%;
+    transform: rotate(-20deg);
+    box-shadow: var(--shadow-elevation-high) 0 0 20px;
   }
   li .title {
     grid-column: 1 / -1;
@@ -105,7 +148,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     border-radius: 5px;
   }
   @media screen and (min-width: 800px) {
-    a {
+    .post-link-card {
       width: 300px;
     }
   }
