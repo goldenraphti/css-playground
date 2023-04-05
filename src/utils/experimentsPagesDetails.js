@@ -77,7 +77,7 @@ export const experimentsPagesDetails = [
     illustration: "paint-4.png",
     tags: ["css", "experiment", "color"],
     deployed: false,
-    coming: true,
+    coming: false,
   },
   {
     path: "new-html-elements",
@@ -87,7 +87,7 @@ export const experimentsPagesDetails = [
     illustration: "microscope-3.png",
     tags: ["html", "dialog", "detail", "search"],
     deployed: false,
-    coming: true,
+    coming: false,
   },
   {
     path: "css-nesting",
@@ -97,6 +97,6 @@ export const experimentsPagesDetails = [
     illustration: "multicolor.png",
     tags: ["html", "dialog", "detail", "search"],
     deployed: false,
-    coming: true,
+    coming: false,
   },
 ];

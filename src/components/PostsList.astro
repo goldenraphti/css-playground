@@ -14,7 +14,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
 <ul>
   {
     experimentsPagesDetails
-      // .filter((experiment) => experiment.deployed)
+      .filter((experiment) => experiment.deployed || experiment.coming)
       .sort((experiment) => (!experiment.deployed ? 1 : -1))
       .map((experiment, i) => (
         <li>
