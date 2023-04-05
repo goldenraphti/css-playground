@@ -39,4 +39,10 @@ const resources = [
   </ExperimentLayout>
 </Layout>
 
-<style></style>
+<style is:global>
+  @supports (grid-template-rows: subgrid) {
+    .support-test {
+      display: none;
+    }
+  }
+</style>

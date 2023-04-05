@@ -3,10 +3,23 @@
 
 <section>
   <h2>🧪 Experiment</h2>
+  <div class='support-test'>
+    ❌ Your browser does NOT support the feature tested below. <a
+      href='#support'>Try another browser</a
+    >
+  </div>
   <slot />
 </section>
 <style>
   section {
     width: 100%;
+  }
+  .support-test {
+    border: 2px solid var(--red-1-rgba);
+    background-color: var(--red-2-rgba);
+    padding: 30px;
+    border-radius: 30px;
+    display: block;
+    font-weight: bold;
   }
 </style>

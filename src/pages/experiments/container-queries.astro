@@ -50,4 +50,10 @@ const resources = [
   </ExperimentLayout>
 </Layout>
 
-<style></style>
+<style is:global>
+  @supports (container-type: inline-size) {
+    .support-test {
+      display: none;
+    }
+  }
+</style>
