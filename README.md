@@ -11,7 +11,6 @@ Simply a personal side-project.
 
 ## Roadmap
 
-- [ ] migrate previous explorations
 - [ ] check weight illustration & optimize images & fix previous avif picture > source images (container queries)
 - [ ] add new explorations
 - [ ] SEO

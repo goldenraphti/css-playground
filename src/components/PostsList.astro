@@ -14,7 +14,8 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
 <ul>
   {
     experimentsPagesDetails
-      .filter((experiment) => experiment.deployed)
+      // .filter((experiment) => experiment.deployed)
+      .sort((experiment) => (!experiment.deployed ? 1 : -1))
       .map((experiment, i) => (
         <li>
           {experiment.deployed ? (
@@ -90,7 +91,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    background: var(--grey-disabled);
+    background: var(--bg-color);
     color: var(--grey-disabled-dark);
   }
   a.post-link-card {
