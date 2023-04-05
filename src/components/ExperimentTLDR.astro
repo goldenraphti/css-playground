@@ -1,11 +1,43 @@
 ---
 interface Props {
-  tldrContent: string;
+  tldrContent: string | string[];
 }
 const { tldrContent } = Astro.props;
 ---
 
 <section>
   <h2>TL;DR</h2>
-  <p>{tldrContent}</p>
+  {
+    Array.isArray(tldrContent) ? (
+      <div class='content'>
+        <p>{tldrContent.shift()}</p>
+        {tldrContent.map((txt) => (
+          <ul>
+            <li>{txt}</li>
+          </ul>
+        ))}
+      </div>
+    ) : (
+      <p class='content'>{tldrContent}</p>
+    )
+  }
 </section>
+<style>
+  section {
+    margin: 50px 0;
+    padding: 50px 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: space-around;
+    border: 1px solid var(--pink-1-rgba);
+    border-radius: 50px;
+  }
+  h1 {
+    width: 33%;
+    text-align: center;
+  }
+  .content {
+    width: 66%;
+  }
+</style>

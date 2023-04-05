@@ -13,49 +13,51 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
 
 <ul>
   {
-    experimentsPagesDetails.map((experiment, i) => (
-      <li>
-        {experiment.deployed ? (
-          <a
-            class='post-link-card'
-            href={`/experiments/${experiment.path}`}
-            style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
-          >
-            <div class='tags'>
-              {experiment.tags.map((tag) => (
-                <span>{tag}</span>
-              ))}
+    experimentsPagesDetails
+      .filter((experiment) => experiment.deployed)
+      .map((experiment, i) => (
+        <li>
+          {experiment.deployed ? (
+            <a
+              class='post-link-card'
+              href={`/experiments/${experiment.path}`}
+              style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
+            >
+              <div class='tags'>
+                {experiment.tags.map((tag) => (
+                  <span>{tag}</span>
+                ))}
+              </div>
+              <div class='title'>{experiment.title}</div>
+              <img
+                src={`/images/${
+                  experiment?.illustration ?? linksIllustrations[i]
+                }`}
+                alt=''
+              />
+            </a>
+          ) : (
+            <div
+              class='post-link-card disabled'
+              style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
+            >
+              <div class='tags'>
+                {experiment.tags.map((tag) => (
+                  <span>{tag}</span>
+                ))}
+              </div>
+              <div class='title'>{experiment.title}</div>
+              <img
+                src={`/images/${
+                  experiment?.illustration ?? linksIllustrations[i]
+                }`}
+                alt=''
+              />
+              <div class='soon'>Soon</div>
             </div>
-            <div class='title'>{experiment.title}</div>
-            <img
-              src={`/images/${
-                experiment?.illustration ?? linksIllustrations[i]
-              }`}
-              alt=''
-            />
-          </a>
-        ) : (
-          <div
-            class='post-link-card disabled'
-            style={`--bg-color: var(${experiment.bgColor}); --txt-color: var(${experiment.textColor});`}
-          >
-            <div class='tags'>
-              {experiment.tags.map((tag) => (
-                <span>{tag}</span>
-              ))}
-            </div>
-            <div class='title'>{experiment.title}</div>
-            <img
-              src={`/images/${
-                experiment?.illustration ?? linksIllustrations[i]
-              }`}
-              alt=''
-            />
-            <div class='soon'>Soon</div>
-          </div>
-        )}
-      </li>
-    ))
+          )}
+        </li>
+      ))
   }
 </ul>
 <style>
@@ -109,7 +111,7 @@ import { experimentsPagesDetails } from "../utils/experimentsPagesDetails";
   }
   div.post-link-card div.soon {
     text-transform: none;
-    background: var(--background-primary);
+    background: var(--bg-primary);
     color: initial;
     position: absolute;
     padding: 6px 15px 8px;

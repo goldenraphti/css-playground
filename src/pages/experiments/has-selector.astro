@@ -6,18 +6,21 @@ import HasExperiment from "../../experimentsHtml/HasExperiment.astro";
 const title = "has() selector";
 const feature = "css-has";
 
-const tldrContent = `CSS declarations do not need to be children to be impacted by another
-        element. It is the parent selector and more, since you can then bring up
-        the state and go down another branch of teh DOM tree`;
+const tldrContent = [
+  "A new, very powerful, CSS selector, opening previously impossible selectors without either CSS pre-processor or JS:",
+  "parent selector (style ancestors based on their children)",
+  "previous sibling",
+  "cousins (style elements based on some other element with a common ancestor but not siblings)",
+];
 
 const opinions = [
-  `AWESOME !!! 🔥 CSS just became a lot easier and fun to use !`,
-  `we'll be able to remove tons of js`,
-  `we're probably only grasping the impact this can have on the way we
-    author our UI. Porbably one of the most impactful CSS feature of the
+  `🔥 CSS just became a lot easier and fun to use !`,
+  `🧹 we'll be able to remove tons of js`,
+  `🌌 we're probably only grasping the impact this can have on the way we
+    author our UI. Probably one of the most impactful CSS feature of the
     recent years passed and to come
   `,
-  `Not usable in production yet because of support, but we should start
+  `💻 Not usable in production yet because of support, but we should start
     thinking about how we would already code things differently if we
     had it, so we mentally start to understand all the possibilities
   `,

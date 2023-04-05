@@ -1,15 +1,119 @@
 ---
+import { Code } from "astro/components";
 ---
 
-<h4>theme toggle with no js</h4>
+<h4>#1 - Modify a parent selector</h4>
+<p>Example: theme toggle with no js</p>
+<p>
+  We'll modify global values ({`<body>`} colors) based on the state of an input low
+  down the DOM tree (the {`<checkbox>`} `checked`)
+</p>
 <div class='has-toggle-demo'>
   <label for='dark-theme-toggle'>
-    <span class='dark-theme'>🌙</span>
+    <span class='dark-theme'>Activate dark theme🌙</span>
     <input
       id='dark-theme-toggle'
       type='checkbox'
       aria-label='active-dark-theme'
     />
-    <span class='light-theme'>🌞</span>
   </label>
 </div>
+<div class='code-blocks'>
+  <Code
+    code={`
+<label for='dark-theme-toggle'>
+  <span class='dark-theme'>Activate dark theme🌙</span>
+  <input
+    id='dark-theme-toggle'
+    type='checkbox'
+    aria-label='active-dark-theme'
+  />
+</label>`}
+    lang='html'
+    theme='dark-plus'
+    wrap
+  />
+  <Code
+    code={`
+body:has(#dark-theme-toggle:checked) {
+  --bg-primary: #000;
+  --txt-primary: #fff;
+}`}
+    lang='css'
+    theme='dark-plus'
+    wrap
+  />
+</div>
+<h4>#2 - Modify a consin</h4>
+<div class='has-toggle-demo'>
+  <div class='common-ancestor'>
+    <p>{`<common ancestor element>`}</p>
+    <div>
+      {`<a div element>`}
+      <p class='early-cousin'>{`<cousin element earlier in the DOM tree>`}</p>
+    </div>
+    <div>
+      {`<another div element>`}
+      <p class='state-to-check'>{`<cousin element later in the DOM tree>`}</p>
+    </div>
+  </div>
+</div>
+<div class='code-blocks'>
+  <Code
+    code={`
+<div class='common-ancestor'>common ancestor element
+
+    <div>a div element
+
+        <p class='early-cousin'>cousin element earlier in the DOM tree</p>
+
+    </div>
+
+    <div>another div element
+
+        <p class='state-to-check'>cousin element later in the DOM tree</p>
+
+    </div>
+</div>`}
+    lang='html'
+    theme='dark-plus'
+    wrap
+  />
+  <Code
+    code={`
+.common-ancestor:has(.state-to-check) .early-cousin {
+    background-color: deeppink;
+}`}
+    lang='css'
+    theme='dark-plus'
+    wrap
+  />
+</div>
+<style>
+  .code-blocks {
+    background: var(--bg-dark);
+    margin: 25px 0;
+    padding: 15px 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .common-ancestor > div {
+    margin-left: 25px;
+  }
+  .common-ancestor > div > p {
+    margin-left: 25px;
+  }
+
+  .common-ancestor:has(.state-to-check) .early-cousin {
+    background-color: deeppink;
+  }
+</style>
+<style is:global>
+  body:has(#dark-theme-toggle:checked) {
+    --bg-primary: #000;
+    --txt-primary: #fff;
+  }
+</style>

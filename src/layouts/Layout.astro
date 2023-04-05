@@ -1,13 +1,18 @@
 ---
 export interface Props {
   title: string;
+  description?: string;
 }
 
 import Footer from "../components/Footer.astro";
 import "@fontsource/spline-sans-mono";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  theme = "light",
+} = Astro.props;
 import BaseHead from "../components/BaseHead.astro";
 ---
 
@@ -22,7 +27,9 @@ import BaseHead from "../components/BaseHead.astro";
     <style is:global>
       :root {
         --accent: 124, 58, 237;
-        --background-primary: #fff;
+        --bg-primary: #fff;
+        --txt-primary: #000;
+        --bg-dark: #1e1e1e;
         --grey-disabled: rgb(214, 214, 214);
         --grey-disabled-dark: rgb(95, 95, 95);
         --red-1: var(--red-1-oklch-full);
@@ -116,6 +123,8 @@ import BaseHead from "../components/BaseHead.astro";
       body {
         min-height: 100vh;
         height: 100%;
+        background-color: var(--bg-primary);
+        color: var(--txt-primary);
       }
       main {
         position: relative;
@@ -124,6 +133,12 @@ import BaseHead from "../components/BaseHead.astro";
         align-items: center;
         justify-content: center;
       }
+
+      section:not(.splash-screen, .splash-intro) {
+        max-width: 80vw;
+        margin-top: 100px;
+      }
+
       code {
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
           DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
