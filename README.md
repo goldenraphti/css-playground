@@ -11,10 +11,10 @@ Simply a personal side-project.
 
 ## Roadmap
 
-- [ ] improve mobile style (reposition illustration splash)
 - [ ] migrate previous explorations
-- [ ] check weight illustration & optimize images
-- [ ] add things to splash screen (illustrations of coding / lab / css / html / js)
+- [ ] check weight illustration & optimize images & fix previous avif picture > source images (container queries)
+- [ ] add new explorations
+- [ ] SEO
 
 ## Credits
 

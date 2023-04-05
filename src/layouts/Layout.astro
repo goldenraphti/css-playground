@@ -45,6 +45,7 @@ import BaseHead from "../components/BaseHead.astro";
         --pink-1-oklch-full: oklch(65.43% 0.3 355.38);
         --pink-1-oklch-25: oklch(65.43% 0.3 355.38 / 25%);
         --pink-1-darker-1-oklch-full: oklch(50% 0.3 355.38);
+        --pink-2-rgba: rgb(255, 213, 235);
         --purple-1: var(--purple-1-oklch-full);
         --purple-1-rgba: rgba(186, 8, 181, 1);
         --purple-1-rgb: 186 8 181;
@@ -136,7 +137,7 @@ import BaseHead from "../components/BaseHead.astro";
 
       section:not(.splash-screen, .splash-intro) {
         max-width: 80vw;
-        margin-top: 100px;
+        margin-top: 50px;
       }
 
       code {
@@ -194,6 +195,9 @@ import BaseHead from "../components/BaseHead.astro";
         .btn.lg {
           font-size: 1rem;
           padding: 8px 12px 10px;
+        }
+        section:not(.splash-screen, .splash-intro) {
+          margin-top: 100px;
         }
       }
       @keyframes bounce-wait {

@@ -1,357 +1,291 @@
 ---
+import CardForContainers from "../pages/experiments/cardForContainers.astro";
+import { Code } from "astro/components";
 ---
 
 <h4>auto-adjust card based on its own width & height (not viewport)</h4>
 <div class='container-query-demo-1'>
+  <div class='code-blocks'>
+    <Code
+      code={`
+  .container-query-demo-1 .wrapper {
+    container-type: inline-size;
+    container-name: card;
+  }`}
+      lang='css'
+      theme='dark-plus'
+      wrap
+    />
+  </div>
   <div class='container container-1'>
     <div class='wrapper'>
-      <div class='card'>
-        <div class='title'>La génisse, la chèvre et leur sœur la brebis</div>
-        <div class='author'>
-          <picture>
-            <source
-              srcset='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?as=avif&width=150'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?width=150'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='author-name'>
-          La Fontaine <br />
-          (👈 BTW not this guy)
-        </div>
-        <div class='image'>
-          <picture>
-            <source
-              srcset='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?as=avif&width=400'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?width=200'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='text-1'>
-          <p>La génisse, la chèvre et leur sœur la brebis,</p>
-          <p>Avec un fier lion, seigneur du voisinage,</p>
-          <p>Firent société, dit-on, au temps jadis,</p>
-          <p>Et mirent en commun le gain et le dommage.</p>
-          <p>Dans les lacs de la chèvre un cerf se trouva pris.</p>
-          <p>Vers ses associés aussitôt elle envoie.</p>
-          <p>Eux venus, le lion par ses ongles compta,</p>
-          <p>Et dit : « Nous sommes quatre à partager la proie. »</p>
-          <p>Puis en autant de parts le cerf il dépeça,</p>
-        </div>
-        <div class='text-2'>
-          <p>Prit pour lui la première en qualité de sire :</p>
-          <p>« Elle doit être à moi, dit-il, et la raison,</p>
-          <p>C'est que je m'appelle Lion :</p>
-          <p>À cela l'on n'a rien à dire.</p>
-          <p>La seconde par droit me doit échoir encor :</p>
-          <p>Ce droit, vous le savez, c'est le droit du plus fort.</p>
-          <p>Comme le plus vaillant je prétends la troisième.</p>
-          <p>Si quelqu'une de vous touche à la quatrième,</p>
-          <p>Je l'étranglerai tout d'abord. »</p>
-        </div>
-        <div class='read-more'>Read more 👉</div>
-      </div>
+      <CardForContainers />
     </div>
   </div>
   <div class='container container-2'>
     <div class='wrapper'>
-      <div class='card'>
-        <div class='title'>La génisse, la chèvre et leur sœur la brebis</div>
-        <div class='author'>
-          <picture>
-            <source
-              srcset='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?as=avif&width=150'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?width=150'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='author-name'>
-          La Fontaine <br />
-          (👈 BTW not this guy)
-        </div>
-        <div class='image'>
-          <picture>
-            <source
-              srcset='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?as=avif&width=400'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?width=200'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='text-1'>
-          <p>La génisse, la chèvre et leur sœur la brebis,</p>
-          <p>Avec un fier lion, seigneur du voisinage,</p>
-          <p>Firent société, dit-on, au temps jadis,</p>
-          <p>Et mirent en commun le gain et le dommage.</p>
-          <p>Dans les lacs de la chèvre un cerf se trouva pris.</p>
-          <p>Vers ses associés aussitôt elle envoie.</p>
-          <p>Eux venus, le lion par ses ongles compta,</p>
-          <p>Et dit : « Nous sommes quatre à partager la proie. »</p>
-          <p>Puis en autant de parts le cerf il dépeça,</p>
-        </div>
-        <div class='text-2'>
-          <p>Prit pour lui la première en qualité de sire :</p>
-          <p>« Elle doit être à moi, dit-il, et la raison,</p>
-          <p>C'est que je m'appelle Lion :</p>
-          <p>À cela l'on n'a rien à dire.</p>
-          <p>La seconde par droit me doit échoir encor :</p>
-          <p>Ce droit, vous le savez, c'est le droit du plus fort.</p>
-          <p>Comme le plus vaillant je prétends la troisième.</p>
-          <p>Si quelqu'une de vous touche à la quatrième,</p>
-          <p>Je l'étranglerai tout d'abord. »</p>
-        </div>
-        <div class='read-more'>Read more 👉</div>
-      </div>
+      <CardForContainers />
     </div>
+  </div>
+  <div class='code-blocks'>
+    <Code
+      code={`
+@container card (max-width: 600px) {
+  .container-query-demo-1 .card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "author author-name"
+      "text-1 text-2"
+      "read-more read-more";
+  }
+
+  .container-query-demo-1 .image {
+    display: none;
+  }
+}`}
+      lang='css'
+      theme='dark-plus'
+      wrap
+    />
   </div>
 
   <div class='container container-2-2'>
     <div class='wrapper'>
-      <div class='card'>
-        <div class='title'>La génisse, la chèvre et leur sœur la brebis</div>
-        <div class='author'>
-          <picture>
-            <source
-              srcset='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?as=avif&width=150'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?width=150'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='author-name'>
-          La Fontaine <br />
-          (👈 BTW not this guy)
-        </div>
-        <div class='image'>
-          <picture>
-            <source
-              srcset='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?as=avif&width=400'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?width=200'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='text-1'>
-          <p>La génisse, la chèvre et leur sœur la brebis,</p>
-          <p>Avec un fier lion, seigneur du voisinage,</p>
-          <p>Firent société, dit-on, au temps jadis,</p>
-          <p>Et mirent en commun le gain et le dommage.</p>
-          <p>Dans les lacs de la chèvre un cerf se trouva pris.</p>
-          <p>Vers ses associés aussitôt elle envoie.</p>
-          <p>Eux venus, le lion par ses ongles compta,</p>
-          <p>Et dit : « Nous sommes quatre à partager la proie. »</p>
-          <p>Puis en autant de parts le cerf il dépeça,</p>
-        </div>
-        <div class='text-2'>
-          <p>Prit pour lui la première en qualité de sire :</p>
-          <p>« Elle doit être à moi, dit-il, et la raison,</p>
-          <p>C'est que je m'appelle Lion :</p>
-          <p>À cela l'on n'a rien à dire.</p>
-          <p>La seconde par droit me doit échoir encor :</p>
-          <p>Ce droit, vous le savez, c'est le droit du plus fort.</p>
-          <p>Comme le plus vaillant je prétends la troisième.</p>
-          <p>Si quelqu'une de vous touche à la quatrième,</p>
-          <p>Je l'étranglerai tout d'abord. »</p>
-        </div>
-        <div class='read-more'>Read more 👉</div>
-      </div>
+      <CardForContainers />
     </div>
   </div>
-
+  <div class='code-blocks'>
+    <Code
+      code={`
+@container card (max-width: 350px) {
+  .container-query-demo-1 .card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "author author-name"
+      "text-1 text-1"
+      "text-2 text-2"
+      "read-more read-more";
+  }
+}`}
+      lang='css'
+      theme='dark-plus'
+      wrap
+    />
+  </div>
   <div class='container container-3'>
     <div class='wrapper'>
-      <div class='card'>
-        <div class='title'>La génisse, la chèvre et leur sœur la brebis</div>
-        <div class='author'>
-          <picture>
-            <source
-              srcset='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?as=avif&width=150'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?width=150'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='author-name'>
-          La Fontaine <br />
-          (👈 BTW not this guy)
-        </div>
-        <div class='image'>
-          <picture>
-            <source
-              srcset='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?as=avif&width=400'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?width=200'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='text-1'>
-          <p>La génisse, la chèvre et leur sœur la brebis,</p>
-          <p>Avec un fier lion, seigneur du voisinage,</p>
-          <p>Firent société, dit-on, au temps jadis,</p>
-          <p>Et mirent en commun le gain et le dommage.</p>
-          <p>Dans les lacs de la chèvre un cerf se trouva pris.</p>
-          <p>Vers ses associés aussitôt elle envoie.</p>
-          <p>Eux venus, le lion par ses ongles compta,</p>
-          <p>Et dit : « Nous sommes quatre à partager la proie. »</p>
-          <p>Puis en autant de parts le cerf il dépeça,</p>
-        </div>
-        <div class='text-2'>
-          <p>Prit pour lui la première en qualité de sire :</p>
-          <p>« Elle doit être à moi, dit-il, et la raison,</p>
-          <p>C'est que je m'appelle Lion :</p>
-          <p>À cela l'on n'a rien à dire.</p>
-          <p>La seconde par droit me doit échoir encor :</p>
-          <p>Ce droit, vous le savez, c'est le droit du plus fort.</p>
-          <p>Comme le plus vaillant je prétends la troisième.</p>
-          <p>Si quelqu'une de vous touche à la quatrième,</p>
-          <p>Je l'étranglerai tout d'abord. »</p>
-        </div>
-        <div class='read-more'>Read more 👉</div>
-      </div>
+      <CardForContainers />
     </div>
   </div>
 
   <div class='container container-4'>
     <div class='wrapper'>
-      <div class='card'>
-        <div class='title'>La génisse, la chèvre et leur sœur la brebis</div>
-        <div class='author'>
-          <picture>
-            <source
-              srcset='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?as=avif&width=150'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?width=150'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='author-name'>
-          La Fontaine <br />
-          (👈 BTW not this guy)
-        </div>
-        <div class='image'>
-          <picture>
-            <source
-              srcset='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?as=avif&width=400'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?width=200'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='text-1'>
-          <p>La génisse, la chèvre et leur sœur la brebis,</p>
-          <p>Avec un fier lion, seigneur du voisinage,</p>
-          <p>Firent société, dit-on, au temps jadis,</p>
-          <p>Et mirent en commun le gain et le dommage.</p>
-          <p>Dans les lacs de la chèvre un cerf se trouva pris.</p>
-          <p>Vers ses associés aussitôt elle envoie.</p>
-          <p>Eux venus, le lion par ses ongles compta,</p>
-          <p>Et dit : « Nous sommes quatre à partager la proie. »</p>
-          <p>Puis en autant de parts le cerf il dépeça,</p>
-        </div>
-        <div class='text-2'>
-          <p>Prit pour lui la première en qualité de sire :</p>
-          <p>« Elle doit être à moi, dit-il, et la raison,</p>
-          <p>C'est que je m'appelle Lion :</p>
-          <p>À cela l'on n'a rien à dire.</p>
-          <p>La seconde par droit me doit échoir encor :</p>
-          <p>Ce droit, vous le savez, c'est le droit du plus fort.</p>
-          <p>Comme le plus vaillant je prétends la troisième.</p>
-          <p>Si quelqu'une de vous touche à la quatrième,</p>
-          <p>Je l'étranglerai tout d'abord. »</p>
-        </div>
-        <div class='read-more'>Read more 👉</div>
-      </div>
+      <CardForContainers />
     </div>
 
     <div class='wrapper'>
-      <div class='card'>
-        <div class='title'>La génisse, la chèvre et leur sœur la brebis</div>
-        <div class='author'>
-          <picture>
-            <source
-              srcset='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?as=avif&width=150'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/raphael-ferrand-blue-gradient-map-over-pink-bg.jpg?width=150'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='author-name'>
-          La Fontaine <br />
-          (👈 BTW not this guy)
-        </div>
-        <div class='image'>
-          <picture>
-            <source
-              srcset='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?as=avif&width=400'
-              type='image/avif'
-            />
-            <img
-              src='./assets/images/yan-savitsky-hmn03dAKS9g-unsplash.jpg?width=200'
-              alt='arctic landscape'
-            />
-          </picture>
-        </div>
-        <div class='text-1'>
-          <p>La génisse, la chèvre et leur sœur la brebis,</p>
-          <p>Avec un fier lion, seigneur du voisinage,</p>
-          <p>Firent société, dit-on, au temps jadis,</p>
-          <p>Et mirent en commun le gain et le dommage.</p>
-          <p>Dans les lacs de la chèvre un cerf se trouva pris.</p>
-          <p>Vers ses associés aussitôt elle envoie.</p>
-          <p>Eux venus, le lion par ses ongles compta,</p>
-          <p>Et dit : « Nous sommes quatre à partager la proie. »</p>
-          <p>Puis en autant de parts le cerf il dépeça,</p>
-        </div>
-        <div class='text-2'>
-          <p>Prit pour lui la première en qualité de sire :</p>
-          <p>« Elle doit être à moi, dit-il, et la raison,</p>
-          <p>C'est que je m'appelle Lion :</p>
-          <p>À cela l'on n'a rien à dire.</p>
-          <p>La seconde par droit me doit échoir encor :</p>
-          <p>Ce droit, vous le savez, c'est le droit du plus fort.</p>
-          <p>Comme le plus vaillant je prétends la troisième.</p>
-          <p>Si quelqu'une de vous touche à la quatrième,</p>
-          <p>Je l'étranglerai tout d'abord. »</p>
-        </div>
-        <div class='read-more'>Read more 👉</div>
-      </div>
+      <CardForContainers />
     </div>
   </div>
+
+  <div class='code-blocks'>
+    <Code
+      code={`
+.container-query-demo-1 .container-3 .wrapper {
+  container-type: size;
+  container-name: card-size;
+}
+
+@container card-size (max-height: 500px) {
+  .container-query-demo-1 .card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "author author-name"
+      "text-1 text-1"
+      "read-more read-more";
+  }
+
+  :is(.text-1, .text-2) p {
+    display: none;
+  }
+
+  .container-query-demo-1 .text-1 :is(p:nth-child(1), p:nth-child(2)) {
+    display: block;
+  }
+
+  .container-query-demo-1 .image {
+    display: none;
+  }
+
+  .container-query-demo-1 .container .read-more {
+    display: block;
+  }
+}`}
+      lang='css'
+      theme='dark-plus'
+      wrap
+    />
+  </div>
 </div>
-<style></style>
+
+<style is:global>
+  .container-query-demo-1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container-query-demo-1 .card {
+    display: grid;
+    column-gap: 15px;
+    row-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    background-color: var(--pink-2-rgba);
+    padding: 20px;
+    border-radius: 10px;
+    grid-template-areas:
+      "title title title"
+      "author author-name author-name"
+      "image text-1 text-2"
+      ".  read-more .";
+    max-width: 900px;
+  }
+
+  .container-query-demo-1 .title {
+    font-weight: bold;
+    text-transform: uppercase;
+    grid-area: title;
+    text-align: center;
+  }
+
+  .container-query-demo-1 .author img {
+    width: 100%;
+    object-fit: fill;
+    width: 100px;
+  }
+
+  .container-query-demo-1 .image img {
+    width: 100%;
+    object-fit: fill;
+  }
+
+  .container-query-demo-1 .image {
+    grid-area: image;
+  }
+
+  .container-query-demo-1 .text-1 {
+    grid-area: text-1;
+  }
+  .container-query-demo-1 .text-2 {
+    grid-area: text-2;
+  }
+
+  .container-query-demo-1 .author {
+    grid-area: author;
+  }
+
+  .container-query-demo-1 .author-name {
+    grid-area: author-name;
+  }
+
+  .container-query-demo-1 .read-more {
+    font-style: italic;
+    grid-area: read-more;
+  }
+
+  .container-query-demo-1 .container {
+    margin: 50px 0;
+    overflow: hidden;
+  }
+
+  .container-query-demo-1 .container .read-more {
+    display: none;
+  }
+
+  .container-query-demo-1 .container-2 {
+    max-width: 400px;
+  }
+
+  .container-query-demo-1 .container.container-2-2 {
+    max-width: 300px;
+  }
+
+  .container-query-demo-1 .container-3 {
+    max-width: 400px;
+    height: 400px;
+  }
+
+  .container-query-demo-1 .container-4 {
+    max-width: 900px;
+    display: flex;
+    gap: 30px;
+    display: none;
+  }
+
+  .container-query-demo-1 .wrapper {
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  .container-query-demo-1 .container-3 .wrapper {
+    container-type: size;
+    container-name: card-size;
+  }
+
+  @container card (max-width: 600px) {
+    .container-query-demo-1 .card {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "title title"
+        "author author-name"
+        "text-1 text-2"
+        "read-more read-more";
+    }
+
+    .container-query-demo-1 .image {
+      display: none;
+    }
+  }
+
+  @container card (max-width: 350px) {
+    .container-query-demo-1 .card {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "title title"
+        "author author-name"
+        "text-1 text-1"
+        "text-2 text-2"
+        "read-more read-more";
+    }
+  }
+
+  @container card-size (max-height: 500px) {
+    .container-query-demo-1 .card {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "title title"
+        "author author-name"
+        "text-1 text-1"
+        "read-more read-more";
+    }
+
+    :is(.text-1, .text-2) p {
+      display: none;
+    }
+
+    .container-query-demo-1 .text-1 :is(p:nth-child(1), p:nth-child(2)) {
+      display: block;
+    }
+
+    .container-query-demo-1 .image {
+      display: none;
+    }
+
+    .container-query-demo-1 .container .read-more {
+      display: block;
+    }
+  }
+</style>
