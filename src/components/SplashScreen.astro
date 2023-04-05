@@ -47,10 +47,6 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     padding: 1rem;
     position: relative;
   }
-  h1,
-  h2 {
-    text-shadow: var(--pink-1-darker-1-oklch-full) 0 0 20px;
-  }
   h1 {
     font-size: 3rem;
     font-weight: 800;
@@ -87,7 +83,6 @@ import BouncingScroll from "../components/BouncingScroll.astro";
     top: -50px;
     right: 30%;
     z-index: 0;
-    filter: drop-shadow(20px 15px 20px oklch(30% 0.1 329.8 / 45%)), blur(0);
     animation: 5s bounce-wait 0.3s ease-in-out infinite;
   }
   img.illustration-spash-screen {
@@ -103,6 +98,10 @@ import BouncingScroll from "../components/BouncingScroll.astro";
   @media screen and (min-width: 1000px) {
     .splash-screen-container {
       border-radius: 6rem;
+    }
+    h1,
+    h2 {
+      text-shadow: var(--pink-1-darker-1-oklch-full) 0 0 20px;
     }
     h1 {
       font-size: 6rem;
