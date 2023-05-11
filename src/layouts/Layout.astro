@@ -6,12 +6,13 @@ export interface Props {
 
 import Footer from "../components/Footer.astro";
 import "@fontsource/spline-sans-mono";
+import "@fontsource/ibm-plex-mono";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  theme = "light",
+  // theme = "light",
 } = Astro.props;
 import BaseHead from "../components/BaseHead.astro";
 ---
@@ -120,7 +121,7 @@ import BaseHead from "../components/BaseHead.astro";
         justify-content: space-between;
       }
       html {
-        font-family: system-ui, sans-serif;
+        font-family: "IBM Plex Mono", system-ui, sans-serif;
         min-height: 100vh;
       }
       body {
@@ -188,6 +189,9 @@ import BaseHead from "../components/BaseHead.astro";
       .btn.lg {
         font-size: 1.2rem;
         padding: 10px 15px 12px;
+      }
+      .sans-serif {
+        font-family: system-ui, sans-serif;
       }
       @media screen and (min-width: 800px) {
         .btn {

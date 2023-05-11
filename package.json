@@ -10,8 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^4.5.3",
     "@fontsource/spline-sans-mono": "^4.5.3",
-    "astro": "^2.0.18"
+    "astro": "^2.4.4"
   },
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^2.1.0",
