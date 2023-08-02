@@ -99,4 +99,14 @@ export const experimentsPagesDetails = [
     deployed: false,
     coming: false,
   },
+  {
+    path: "popover",
+    title: "Popover",
+    bgColor: "--red-1-oklch-25",
+    textColor: "--red-1-oklch-full",
+    illustration: "multicolor.png",
+    tags: ["html", "css", "popover"],
+    deployed: true,
+    coming: false,
+  },
 ];

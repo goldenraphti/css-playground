@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExperimentLayout from "../../layouts/ExperimentLayout.astro";
+import PopoverExperiment from "../../experimentsHtml/PopoverExperiment.astro";
+
+const title = "popover";
+const feature = "mdn-api_htmlelement_popover";
+
+const tldrContent = [
+  "easy way to make any element toggle its display with just an attribute on both the trigger and the triggered",
+  "easy to customize via JS but not needed",
+  "good defaults",
+];
+
+const opinions = [
+  "very easy to use in its simplest form",
+  "possible to use with no JS",
+  "fairly close usecase with details, dialog, and soon selectmenu. It gives more tools.",
+];
+
+const resources = [
+  {
+    author: "Una Kravets for Web.dev",
+    link: new URL("https://developer.chrome.com/blog/introducing-popover-api/"),
+    title: "Introducing the popover API",
+  },
+  {
+    author: "Hidde de Vries",
+    link: new URL("https://hidde.blog/dialog-modal-popover-differences/"),
+    title: "Dialogs and popovers seem similar. How are they different?",
+  },
+  {
+    author: "Hidde de Vries",
+    link: new URL("https://hidde.blog/popover-semantics/"),
+    title: "Semantics and the popover attribute: what to use when?",
+  },
+  {
+    author: "MDN",
+    link: new URL(
+      "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"
+    ),
+    title: "Popover API",
+  },
+];
+---
+
+<Layout title={`${title} - Web Experiment - Raphaël Ferrand`}>
+  <ExperimentLayout
+    title={title}
+    resources={resources}
+    feature={feature}
+    tldrContent={tldrContent}
+    opinions={opinions}
+  >
+    <PopoverExperiment />
+  </ExperimentLayout>
+</Layout>
+
+<style is:global>
+  @supports selector(:popover-open) {
+    .support-test {
+      display: none;
+    }
+  }
+</style>

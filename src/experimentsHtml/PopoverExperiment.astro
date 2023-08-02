@@ -1,0 +1,318 @@
+---
+import { Code } from "astro/components";
+---
+
+<h4>in its simplest form</h4>At its simplest popover needs:<ul>
+  <li>
+    the element you want to use as popover (it can be whatever tag, e.g. a div),
+    with an "id" AND a `popover` attribute
+  </li>
+  <li>
+    a button with a `popovertarget` attribute passing the popover "id" value
+  </li>
+</ul>
+
+<button popovertarget='my-popover-target'>Open Popover</button>
+
+<div id='my-popover-target' popover>
+  <p>This is the simplest popover</p>
+</div>
+
+<div class='code-blocks'>
+  <Code
+    code={`<button popovertarget='my-popover-target'>Open Popover</button>
+
+<div id='my-popover-target' popover>
+  <p>This is the simplest popover</p>
+</div>`}
+    lang='html'
+    theme='dark-plus'
+    wrap
+  />
+</div>
+
+<h4>Deeper test still no JS: add specific actions</h4>
+
+<p>
+  You can add a close button inside the popover just using HTML, no JS, using
+  the `popovertargetaction` and the `hide` value. For it to work you also need
+  to add a popovertarget attribute. We're slowly getting the idea behind, the
+  common mechanisms.<br />You could also add this button outside the popover BUT
+  it would be useless since anyway clicking outside the popover closes it.
+</p>
+
+<button popovertarget='my-popover-target-2'>Open Popover</button>
+
+<div id='my-popover-target-2' popover>
+  <button popovertarget='my-popover-target-2' popovertargetaction='hide'>
+    <span aria-hidden='true'>💣</span>
+    <span class='sr-only'>Close</span>
+  </button>
+  <p>This is the simplest popover</p>
+</div>
+
+<div class='code-blocks'>
+  <Code
+    code={`<button popovertarget="my-popover-test-2" popovertargetaction="hide">
+      <span aria-hidden="true">💣</span>
+      <span class="sr-only">Close</span>
+  </button>`}
+    lang='html'
+    theme='dark-plus'
+    wrap
+  />
+</div>
+
+<h4>Weird edge cases</h4>
+
+<h5>Sibling popovers opened at the same time</h5>What happens if I am trying to
+open a popover while another one is opened? It closes the previous one and open
+the new one.<button popovertarget='my-popover-target-3-1'
+  >Open this Popover first</button
+>
+
+<div id='my-popover-target-3-1' popover>
+  <p>This is the first popover opened, now open the second one</p>
+</div>
+<button popovertarget='my-popover-target-3-2'
+  >Open this second Popover next</button
+>
+
+<div id='my-popover-target-3-2' popover>
+  <p>The first popover closed when trying to open this one</p>
+</div>
+
+<h5>Nested popovers</h5>
+
+<button popovertarget='my-popover-target-4-1'
+  >Open this wrapper Popover first</button
+>
+
+<div id='my-popover-target-4-1' popover>
+  <p>This is the first popover opened, now open the second one inside here</p>
+  <button popovertarget='my-popover-target-4-2'
+    >Open this nested Popover next</button
+  >
+
+  <div id='my-popover-target-4-2' popover>
+    <p>The first popover remains opened while this one got opened too</p>
+  </div>
+</div>
+
+<h4>🛠️ Disable auto mode and switch to manual</h4>By default the "popover"
+attribute in the popover element implicitly means value is "auto". You can
+change this by explicitly adding `popover="manual"` The changes are:<ul>
+  <li>
+    it disables the light dismiss (close popover when click outside the popover
+    or hit Escape
+  </li>
+  <li>It also DO NOT auto close any other popover opened</li>
+  <li>
+    You then need to add other ways to close it: close button (using the
+    `popovertargetaction="hide"` and/or a timer).
+  </li>
+</ul>Why using it then? Basically, for example when using it for a toast
+component.<button popovertarget='toast-1'>Open toast 1</button>
+<div popover='manual' id='toast-1'>
+  <button popovertarget='toast-1' popovertargetaction='hide'>
+    <span aria-hidden='true'>❌</span>
+    <span class='sr-only'>Close</span>
+  </button>
+  <p>Toast 1</p>
+</div>
+<script>
+  document
+    .querySelector('button[popovertarget="toast-1"]')
+    .addEventListener("click", () =>
+      setTimeout(() => {
+        document.getElementById("toast-1").hidePopover();
+      }, 5000)
+    );
+</script>
+
+<style>
+  #toast-1 {
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: color-mix(in oklab, rgb(185 244 185), transparent 10%);
+    border: 1px solid green;
+    width: 200px;
+    height: 100px;
+    color: green;
+    font-weight: bold;
+    place-content: center;
+    place-items: center;
+    border-radius: 8px;
+
+    & button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 5px;
+    }
+  }
+</style>
+
+<h4>🎨 Styling</h4>
+
+<p>Specific styling possibilities: `::backdrop`</p>
+<button popovertarget='my-popover-target-5'>Open the styled popover</button>
+
+<div id='my-popover-target-5' popover>
+  <p>This is a styled popover</p>
+</div>
+
+<style>
+  #my-popover-target-5 {
+    &::backdrop {
+      background-color: color-mix(in oklab, aquamarine, transparent 20%);
+      backdrop-filter: blur(2px);
+    }
+  }
+</style>
+
+<div class='code-blocks'>
+  <Code
+    code={`#my-popover-target-5::backdrop {
+  background-color: color-mix(in oklab, aquamarine, transparent 20%);
+  backdrop-filter: blur(2px);
+}`}
+    lang='css'
+    theme='dark-plus'
+    wrap
+  />
+</div>
+
+<h4>Using JS: show / hide / toggle</h4>
+
+<button id='show-popover-btn'>show popover only via JS</button>
+<button id='hide-popover-btn'>hide popover only via JS</button>
+<button id='toggle-popover-btn'>toggle popover only via JS</button>
+
+<div id='popover-6' popover='manual'>I'm the popover</div>
+
+<script>
+  document
+    .getElementById("show-popover-btn")
+    .addEventListener("click", () =>
+      document.getElementById("popover-6").showPopover()
+    );
+  document
+    .getElementById("hide-popover-btn")
+    .addEventListener("click", () =>
+      document.getElementById("popover-6").hidePopover()
+    );
+
+  document
+    .getElementById("toggle-popover-btn")
+    .addEventListener("click", () =>
+      document.getElementById("popover-6").togglePopover()
+    );
+</script>
+
+<div class='code-blocks'>
+  <Code
+    code={`document
+  .getElementById("show-popover-btn")
+  .addEventListener("click", () =>
+    document.getElementById("popover-6").showPopover()
+  );
+
+document
+  .getElementById("hide-popover-btn")
+  .addEventListener("click", () =>
+    document.getElementById("popover-6").hidePopover()
+  );
+
+document
+  .getElementById("toggle-popover-btn")
+  .addEventListener("click", () =>
+    document.getElementById("popover-6").togglePopover()
+  );`}
+    lang='js'
+    theme='dark-plus'
+    wrap
+  />
+</div>
+
+<h4>Differences with existing solutions</h4>
+
+<p>
+  We can easily imagine its benefits for features such as mobile nav modal,
+  toasts, ... But why using them over other existing solutions? One reason is:
+  the popover can be ANY element, when the dialog is a special tag. This is
+  already a big advantage over the dialog element when in use in a Design
+  Systsem for example. Think about the Topbar. You can have an element with the
+  menu links as a normal div. And when you click on the hamburger menu it
+  transofrms it into a full blown full-screen nav modal. For toast it makes lot
+  of sense too, although we would then need to add JS for the timer, so the
+  beenfits are limited.
+</p>
+
+<p>Key differences with the dialog element</p>
+<ul>
+  <li>
+    it does NOT provide semantic of its own. It does not convey any meaning per
+    se. Which is good (flexibility for its use), but also remove the A11y
+    benefit of the dialog element which convey this specific meaning.
+  </li>
+  <li>
+    dialog block background scrolling and interactions,not popover (if mode
+    manual, else light-dismiss means it will close the popover)
+  </li>
+  <li>popover supports light dismiss (on mode auto), dialog does not</li>
+  <li>
+    very easy to create a no-JS popover, when the no-JS dialog is basically
+    pointless
+  </li>
+</ul>
+
+<h4>Possible use cases</h4>
+<ul>
+  <li>toasts</li>
+  <li>tooltips</li>
+  <li>menu</li>
+  <li>modals / popups</li>
+</ul>
+
+<h4>Future evolutions of the popover</h4>
+
+<p>WhatWG and OpenUI are apparently discussing future features for it:</p>
+<ul>
+  <li>animation `@starting-style`</li>
+  <li>`:popover-open`</li>
+</ul>
+
+<div class='code-blocks'>
+  <Code
+    code={`#my-toast:popover-open {
+      /*   0. BEFORE-OPEN STATE   */
+      /*  initial state for what we're animating *in* from,
+          in this case: goes from lower (y + 20px) to center  */
+      @starting-style {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      /*   1. OPEN STATE   */
+      /*  state when popover is open, BOTH:
+          what we're transitioning *in* to
+          and transitioning *out* from */
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /*   2. AFTER-OPEN-IS-CLOSED STATE   */
+    /*  initial state for what we're animating *out* to ,
+        in this case: goes from center to (y - 50px) higher */
+    transform: translateY(-50px);
+    opacity: 0;
+
+    /*  enumarate transitioning properties, including display */
+    transition: transform 0.5s, opacity 0.5s, display 0.5s;
+  }`}
+    lang='css'
+    theme='dark-plus'
+    wrap
+  />
+</div>
