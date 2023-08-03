@@ -164,9 +164,24 @@ component.<button popovertarget='toast-1'>Open toast 1</button>
 
 <style>
   #my-popover-target-5 {
+    transition: all 0.5s ease-in-out;
+
     &::backdrop {
       background-color: color-mix(in oklab, aquamarine, transparent 20%);
       backdrop-filter: blur(2px);
+    }
+
+    &:popover-open {
+      @starting-style {
+        opacity: 0;
+        color: green;
+        filter: blur(0);
+        transform: translateY(20px) scale(0.9);
+      }
+      opacity: 1;
+      color: red;
+      filter: blur(0);
+      transform: translateY(0) scale(1);
     }
   }
 </style>
@@ -176,6 +191,22 @@ component.<button popovertarget='toast-1'>Open toast 1</button>
     code={`#my-popover-target-5::backdrop {
   background-color: color-mix(in oklab, aquamarine, transparent 20%);
   backdrop-filter: blur(2px);
+
+  &:popover-open {
+      @starting-style {
+        opacity: 0;
+        color: green;
+        filter: blur(0);
+        transform: translateY(20px) scale(0.9);
+      }
+
+      opacity: 1;
+      color: red;
+      filter: blur(0);
+      transform: translateY(0) scale(1);
+  }
+
+  transition: transform 0.5s, opacity 0.5s, display 0.5s, color 0.5s;
 }`}
     lang='css'
     theme='dark-plus'
@@ -185,9 +216,9 @@ component.<button popovertarget='toast-1'>Open toast 1</button>
 
 <h4>Using JS: show / hide / toggle</h4>
 
-<button id='show-popover-btn'>show popover only via JS</button>
-<button id='hide-popover-btn'>hide popover only via JS</button>
-<button id='toggle-popover-btn'>toggle popover only via JS</button>
+<button id='show-popover-btn' onclick=''>show popover only via JS</button>
+<button id='hide-popover-btn' onclick=''>hide popover only via JS</button>
+<button id='toggle-popover-btn' onclick=''>toggle popover only via JS</button>
 
 <div id='popover-6' popover='manual'>I'm the popover</div>
 
@@ -269,50 +300,37 @@ document
 
 <h4>Possible use cases</h4>
 <ul>
-  <li>toasts</li>
-  <li>tooltips</li>
+  <li>toasts (in mode manual adding timer function)</li>
+  <li>tooltips (combining it with the future `anchor` HTML attribute</li>
   <li>menu</li>
-  <li>modals / popups</li>
+  <li>
+    modals / popups (but no `inert` built-in functionality, no focus moved nor
+    trapped)
+  </li>
 </ul>
 
-<h4>Future evolutions of the popover</h4>
+<h4>Benefits of Popover</h4>
 
-<p>WhatWG and OpenUI are apparently discussing future features for it:</p>
 <ul>
-  <li>animation `@starting-style`</li>
-  <li>`:popover-open`</li>
+  <li>easy way to display hide a modal with no JS</li>
+  <li>easy styling of a modal (:backdrop, :popover-open, @starting-styles)</li>
+  <li>No semantic</li>
+  <li>light dismiss (by default but can be disabled)</li>
+  <li>close currently opened popovers (by default but can be disabled)</li>
+  <li>easy to use & customize</li>
 </ul>
 
-<div class='code-blocks'>
-  <Code
-    code={`#my-toast:popover-open {
-      /*   0. BEFORE-OPEN STATE   */
-      /*  initial state for what we're animating *in* from,
-          in this case: goes from lower (y + 20px) to center  */
-      @starting-style {
-        transform: translateY(20px);
-        opacity: 0;
-      }
+<h4>Drawbacks/footgun of Popover</h4>
 
-      /*   1. OPEN STATE   */
-      /*  state when popover is open, BOTH:
-          what we're transitioning *in* to
-          and transitioning *out* from */
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /*   2. AFTER-OPEN-IS-CLOSED STATE   */
-    /*  initial state for what we're animating *out* to ,
-        in this case: goes from center to (y - 50px) higher */
-    transform: translateY(-50px);
-    opacity: 0;
-
-    /*  enumarate transitioning properties, including display */
-    transition: transform 0.5s, opacity 0.5s, display 0.5s;
-  }`}
-    lang='css'
-    theme='dark-plus'
-    wrap
-  />
-</div>
+<ul>
+  <li>No `inert` (diff with dialog)</li>
+  <li>
+    No progressive enhancement. If not supported then the popover is displayed
+    all the time by default, it looks broken
+  </li>
+  <li>
+    Focus is not automatically moved nor trapped inside the popover (diff with
+    dialog)
+  </li>
+  <li>No semantic</li>
+</ul>
